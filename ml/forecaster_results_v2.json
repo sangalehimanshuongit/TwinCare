@@ -1,0 +1,410 @@
+{
+  "train_episodes": 300,
+  "test_episodes": 150,
+  "warnable_from_minute": 16,
+  "realert_min": 10,
+  "operating_points": {
+    "1": {
+      "model": {
+        "threshold": 0.6,
+        "train": {
+          "drops": 214,
+          "warnable_drops": 140,
+          "sensitivity_10min": 0.107,
+          "median_warning_min": 6.0,
+          "false_alerts_per_h": 0.98,
+          "time_alerting": 0.14
+        },
+        "test": {
+          "drops": 118,
+          "warnable_drops": 79,
+          "sensitivity_10min": 0.063,
+          "median_warning_min": 5.0,
+          "false_alerts_per_h": 1.07,
+          "time_alerting": 0.175
+        }
+      },
+      "map_alarm": {
+        "threshold_mmHg": 66.75,
+        "train": {
+          "drops": 214,
+          "warnable_drops": 140,
+          "sensitivity_10min": 0.0,
+          "median_warning_min": 1.0,
+          "false_alerts_per_h": 0.96,
+          "time_alerting": 0.093
+        },
+        "test": {
+          "drops": 118,
+          "warnable_drops": 79,
+          "sensitivity_10min": 0.0,
+          "median_warning_min": 1.0,
+          "false_alerts_per_h": 0.6,
+          "time_alerting": 0.052
+        }
+      }
+    },
+    "2": {
+      "model": {
+        "threshold": 0.49,
+        "train": {
+          "drops": 214,
+          "warnable_drops": 140,
+          "sensitivity_10min": 0.343,
+          "median_warning_min": 8.0,
+          "false_alerts_per_h": 1.95,
+          "time_alerting": 0.215
+        },
+        "test": {
+          "drops": 118,
+          "warnable_drops": 79,
+          "sensitivity_10min": 0.304,
+          "median_warning_min": 7.0,
+          "false_alerts_per_h": 1.76,
+          "time_alerting": 0.243
+        }
+      },
+      "map_alarm": {
+        "threshold_mmHg": 67.75,
+        "train": {
+          "drops": 214,
+          "warnable_drops": 140,
+          "sensitivity_10min": 0.0,
+          "median_warning_min": 2.0,
+          "false_alerts_per_h": 1.77,
+          "time_alerting": 0.173
+        },
+        "test": {
+          "drops": 118,
+          "warnable_drops": 79,
+          "sensitivity_10min": 0.0,
+          "median_warning_min": 2.0,
+          "false_alerts_per_h": 1.56,
+          "time_alerting": 0.131
+        }
+      }
+    }
+  },
+  "curve_test": {
+    "model": [
+      {
+        "thr": 0.1,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 4.38,
+        "time_alerting": 0.768
+      },
+      {
+        "thr": 0.15,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 4.2,
+        "time_alerting": 0.723
+      },
+      {
+        "thr": 0.2,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 3.84,
+        "time_alerting": 0.682
+      },
+      {
+        "thr": 0.25,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 3.55,
+        "time_alerting": 0.651
+      },
+      {
+        "thr": 0.3,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.987,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 3.65,
+        "time_alerting": 0.607
+      },
+      {
+        "thr": 0.35,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.962,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 3.92,
+        "time_alerting": 0.518
+      },
+      {
+        "thr": 0.4,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.873,
+        "median_warning_min": 14.0,
+        "false_alerts_per_h": 3.68,
+        "time_alerting": 0.396
+      },
+      {
+        "thr": 0.45,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.633,
+        "median_warning_min": 11.0,
+        "false_alerts_per_h": 2.61,
+        "time_alerting": 0.295
+      },
+      {
+        "thr": 0.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.278,
+        "median_warning_min": 7.0,
+        "false_alerts_per_h": 1.57,
+        "time_alerting": 0.23
+      },
+      {
+        "thr": 0.55,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.152,
+        "median_warning_min": 6.0,
+        "false_alerts_per_h": 1.21,
+        "time_alerting": 0.196
+      },
+      {
+        "thr": 0.6,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.063,
+        "median_warning_min": 5.0,
+        "false_alerts_per_h": 1.07,
+        "time_alerting": 0.175
+      },
+      {
+        "thr": 0.65,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.051,
+        "median_warning_min": 5.0,
+        "false_alerts_per_h": 0.98,
+        "time_alerting": 0.15
+      },
+      {
+        "thr": 0.7,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 4.0,
+        "false_alerts_per_h": 0.95,
+        "time_alerting": 0.125
+      },
+      {
+        "thr": 0.75,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 3.0,
+        "false_alerts_per_h": 0.95,
+        "time_alerting": 0.108
+      },
+      {
+        "thr": 0.8,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 3.0,
+        "false_alerts_per_h": 0.94,
+        "time_alerting": 0.091
+      },
+      {
+        "thr": 0.85,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 2.0,
+        "false_alerts_per_h": 0.89,
+        "time_alerting": 0.074
+      },
+      {
+        "thr": 0.9,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 1.0,
+        "false_alerts_per_h": 0.82,
+        "time_alerting": 0.059
+      }
+    ],
+    "map_alarm": [
+      {
+        "thr": 66.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 1.0,
+        "false_alerts_per_h": 0.19,
+        "time_alerting": 0.023
+      },
+      {
+        "thr": 66.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 1.0,
+        "false_alerts_per_h": 0.38,
+        "time_alerting": 0.038
+      },
+      {
+        "thr": 67.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 1.0,
+        "false_alerts_per_h": 0.97,
+        "time_alerting": 0.075
+      },
+      {
+        "thr": 67.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 2.0,
+        "false_alerts_per_h": 1.43,
+        "time_alerting": 0.117
+      },
+      {
+        "thr": 68.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 2.0,
+        "false_alerts_per_h": 1.7,
+        "time_alerting": 0.143
+      },
+      {
+        "thr": 68.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 3.0,
+        "false_alerts_per_h": 2.19,
+        "time_alerting": 0.178
+      },
+      {
+        "thr": 69.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.0,
+        "median_warning_min": 3.0,
+        "false_alerts_per_h": 2.55,
+        "time_alerting": 0.22
+      },
+      {
+        "thr": 69.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.025,
+        "median_warning_min": 3.5,
+        "false_alerts_per_h": 2.95,
+        "time_alerting": 0.266
+      },
+      {
+        "thr": 70.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.089,
+        "median_warning_min": 4.0,
+        "false_alerts_per_h": 3.27,
+        "time_alerting": 0.307
+      },
+      {
+        "thr": 70.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.165,
+        "median_warning_min": 5.0,
+        "false_alerts_per_h": 3.62,
+        "time_alerting": 0.374
+      },
+      {
+        "thr": 71.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.354,
+        "median_warning_min": 7.0,
+        "false_alerts_per_h": 3.97,
+        "time_alerting": 0.454
+      },
+      {
+        "thr": 71.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.532,
+        "median_warning_min": 10.0,
+        "false_alerts_per_h": 4.37,
+        "time_alerting": 0.551
+      },
+      {
+        "thr": 72.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.671,
+        "median_warning_min": 12.0,
+        "false_alerts_per_h": 4.65,
+        "time_alerting": 0.609
+      },
+      {
+        "thr": 72.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 0.797,
+        "median_warning_min": 14.0,
+        "false_alerts_per_h": 4.92,
+        "time_alerting": 0.671
+      },
+      {
+        "thr": 73.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 5.08,
+        "time_alerting": 0.729
+      },
+      {
+        "thr": 73.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 5.21,
+        "time_alerting": 0.76
+      },
+      {
+        "thr": 74.0,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 5.3,
+        "time_alerting": 0.789
+      },
+      {
+        "thr": 74.5,
+        "drops": 118,
+        "warnable_drops": 79,
+        "sensitivity_10min": 1.0,
+        "median_warning_min": 15.0,
+        "false_alerts_per_h": 5.39,
+        "time_alerting": 0.811
+      }
+    ]
+  },
+  "note": "Synthetic dry run: the same model generates training and test data, so results are optimistic and do not verify DI-03."
+}

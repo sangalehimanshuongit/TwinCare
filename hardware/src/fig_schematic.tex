@@ -1,0 +1,83 @@
+\documentclass[border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[siunitx,american]{circuitikz}
+\usepackage{xcolor}\usetikzlibrary{calc}
+\definecolor{navy}{HTML}{1F3A5F}\definecolor{ink}{HTML}{1E2633}\definecolor{muted}{HTML}{5B6573}
+\definecolor{hair}{HTML}{C9D1DB}\definecolor{soft}{HTML}{E4EAF2}\definecolor{accent}{HTML}{C2410C}
+\ctikzset{logic ports=ieee, resistors/scale=0.75, capacitors/scale=0.7, diodes/scale=0.6, switches/scale=0.8}
+\tikzset{
+  chip/.style={draw=navy, fill=soft, line width=0.8pt},
+  pin/.style={font=\scriptsize, color=ink},
+  net/.style={font=\scriptsize\bfseries, color=navy},
+  pwr/.style={font=\scriptsize, color=accent!0!ink},
+  ref/.style={font=\footnotesize\bfseries, color=navy},
+  part/.style={font=\scriptsize, color=muted},
+}
+\begin{document}
+\begin{circuitikz}[line width=0.6pt, color=ink]
+%---------------- U1 dev board
+\draw[chip] (0,0) rectangle (3.6,7.4);
+\node[ref] at (1.8,6.95) {U1};
+\node[part, align=center] at (1.8,6.4) {ESP32-S3-DevKitC-1\\N8R8, v1.1};
+\foreach \y/\p/\n in {5.4/GPIO4/DOSE\_PWM, 4.6/GPIO5/WDI, 3.8/GPIO6/ARM,
+                      3.0/GPIO16/WDO\_N, 2.2/GPIO15/OVR\_N, 1.4/GPIO7/DOSE\_OUT}{
+  \node[pin, anchor=east] at (3.5,\y) {\p};
+  \draw (3.6,\y) -- (4.4,\y);
+  \node[net, anchor=west] at (4.4,\y) {\n};
+}
+\node[part, anchor=west, align=left] at (0.15,0.75) {3V3 and GND pins power\\U2 to U4 (+3V3 net)};
+\node[part, anchor=west] at (0.15,0.25) {USB-C to laptop};
+\begin{scope}[xshift=1.3cm]
+%---------------- U2 watchdog
+\draw[chip] (6.8,5.0) rectangle (9.2,7.8);
+\node[ref] at (8.0,7.45) {U2};
+\node[part] at (8.0,7.05) {TPS3431};
+\node[pin, anchor=west] at (6.85,6.4) {WDI};
+\node[pin, anchor=west] at (6.85,5.7) {SET1};
+\node[pin, anchor=east] at (9.15,6.4) {WDO};
+\node[pin] at (7.4,5.25) {CWD};
+\node[pin] at (8.6,5.25) {GND};
+\draw (6.8,6.4) -- (6.1,6.4) node[net, anchor=east]{WDI};
+\draw (6.8,5.7) -- (6.1,5.7) node[pwr, anchor=east]{+3V3};
+\draw (7.4,5.0) to[C, l_=\scriptsize C1 100\,pF] (7.4,4.25) node[ground]{};
+\draw (8.6,5.0) -- (8.6,4.6) node[ground]{};
+\draw (9.2,6.4) -- (12.9,6.4) node[net, anchor=west]{WDO\_N};
+\draw (9.9,6.4) to[R, l_=\scriptsize R2 10\,k$\Omega$, *-] (9.9,7.6) node[pwr, above]{+3V3};
+\draw (11.7,6.4) to[leD, fill=red!60, l_=\scriptsize D2 red, *-] (11.7,7.25) to[R, l_=\scriptsize R5 1\,k$\Omega$] (11.7,8.2) node[pwr, above]{+3V3};
+%---------------- U3 latch
+\draw[chip] (6.8,0.4) rectangle (9.2,3.2);
+\node[ref] at (8.0,1.05) {U3};
+\node[part] at (8.0,0.7) {74HC74 (half)};
+\node[pin, anchor=west] at (6.85,2.7) {D};
+\node[pin, anchor=west] at (6.85,2.0) {CLK};
+\node[pin, anchor=west] at (6.85,1.4) {PRE};
+\node[pin] at (8.0,2.95) {CLR};
+\node[pin, anchor=east] at (9.15,2.3) {Q};
+\draw (6.8,2.7) -- (6.1,2.7) node[pwr, anchor=east]{+3V3};
+\draw (6.8,2.0) -- (6.1,2.0) node[net, anchor=east]{ARM};
+\draw (6.8,1.4) -- (6.1,1.4) node[pwr, anchor=east]{+3V3};
+\draw (8.0,3.2) -- (8.0,3.75); \node[net, anchor=west] at (8.08,3.55) {WDO\_N};
+%---------------- U4 AND gate and output
+\draw (14.2,3.1) node[and port, number inputs=3, scale=1.3] (A) {};
+\node[ref] at ($(A.center)+(0,0.95)$) {U4};
+\node[part] at ($(A.center)+(0,-0.95)$) {74HC11 (one gate)};
+% in 1: override switch, pull-up
+\draw (A.in 1) -- ++(-0.7,0) coordinate (k) |- (12.2,5.0) coordinate (ovr);
+\draw (ovr) to[R, l=\scriptsize R3 10\,k$\Omega$, *-] ++(1.3,0) node[pwr, anchor=west]{+3V3};
+\draw (ovr) -- (11.0,5.0) to[switch, l_=\scriptsize S1 override] (11.0,4.0) node[ground]{};
+\node[net, anchor=south] at (11.6,5.05) {OVR\_N};
+% in 2: latch output
+\draw (9.2,2.3) -- (10.4,2.3) |- (A.in 2);
+\node[net, anchor=south] at (9.85,2.33) {DOSE\_EN};
+% in 3: firmware PWM, pull-down
+\draw (A.in 3) -- ++(-0.45,0) coordinate (q3) |- (11.6,1.75) coordinate (p3) -- (10.9,1.75) node[net, anchor=east]{DOSE\_PWM};
+\draw (p3) to[R, l=\scriptsize R1 100\,k$\Omega$, *-] ++(0,-1.3) node[ground]{};
+% output
+\draw (A.out) -- ++(1.0,0) coordinate (o) -- ++(1.1,0) node[ocirc]{} node[pin, above]{TP1};
+\draw (o) to[R, l=\scriptsize R4 330\,$\Omega$, *-] ++(0,-1.2) to[leD, fill=accent!60, l=\scriptsize D1 amber] ++(0,-0.9) node[ground]{};
+\node[net, anchor=south] at ($(o)+(0.15,0.05)$) {DOSE\_OUT};
+\end{scope}
+\end{circuitikz}
+\end{document}

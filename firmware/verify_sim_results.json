@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "DI-02": {
+      "scenarios": 6,
+      "all_pass": true,
+      "worst_err_mmHg": 0.00020998858850873603,
+      "seconds_compared": 21606
+    },
+    "DI-01": {
+      "cases": 3,
+      "all_pass": true,
+      "worst_error_s": 0
+    }
+  },
+  "detail": {
+    "DI-02": [
+      {
+        "K": 70,
+        "delay_s": 60,
+        "policy": "reactive",
+        "seconds": 3601,
+        "max_abs_err_mmHg": 0.00016754463806023523,
+        "pass": true
+      },
+      {
+        "K": 70,
+        "delay_s": 60,
+        "policy": "twin",
+        "seconds": 3601,
+        "max_abs_err_mmHg": 0.00017811532148925835,
+        "pass": true
+      },
+      {
+        "K": 85,
+        "delay_s": 120,
+        "policy": "reactive",
+        "seconds": 3601,
+        "max_abs_err_mmHg": 2.5747170681711395e-05,
+        "pass": true
+      },
+      {
+        "K": 85,
+        "delay_s": 120,
+        "policy": "twin",
+        "seconds": 3601,
+        "max_abs_err_mmHg": 0.00020998858850873603,
+        "pass": true
+      },
+      {
+        "K": 115,
+        "delay_s": 180,
+        "policy": "reactive",
+        "seconds": 3601,
+        "max_abs_err_mmHg": 2.3699002454691254e-05,
+        "pass": true
+      },
+      {
+        "K": 115,
+        "delay_s": 180,
+        "policy": "twin",
+        "seconds": 3601,
+        "max_abs_err_mmHg": 5.730334079601107e-05,
+        "pass": true
+      }
+    ],
+    "DI-01": [
+      {
+        "configured_delay_s": 60,
+        "measured_onset_s": 60,
+        "error_s": 0,
+        "pass": true
+      },
+      {
+        "configured_delay_s": 120,
+        "measured_onset_s": 120,
+        "error_s": 0,
+        "pass": true
+      },
+      {
+        "configured_delay_s": 180,
+        "measured_onset_s": 180,
+        "error_s": 0,
+        "pass": true
+      }
+    ]
+  }
+}

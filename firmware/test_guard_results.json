@@ -1,0 +1,30 @@
+{
+  "commands": 10009,
+  "edge_cases": 9,
+  "unsafe": 5030,
+  "unsafe_rejected": 5030,
+  "safe": 4979,
+  "safe_accepted": 4979,
+  "reason_mismatches": 0,
+  "by_reason_expected": {
+    "accepted": 4979,
+    "wrong session": 1022,
+    "duplicate": 1014,
+    "stale": 1031,
+    "out of limit": 958,
+    "step too large": 1005
+  },
+  "edge_results": [
+    "accepted",
+    "accepted",
+    "stale",
+    "accepted",
+    "duplicate",
+    "wrong session",
+    "step too large",
+    "out of limit",
+    "out of limit"
+  ],
+  "c_log": "rejected by reason: session 1022, duplicate 1014, stale 1031, limit 958, step 1005",
+  "pass": true
+}

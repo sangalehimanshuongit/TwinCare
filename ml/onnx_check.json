@@ -1,0 +1,36 @@
+{
+ "cases": 120,
+ "rows": 25930,
+ "positive_rate": 0.22526031623602005,
+ "logreg": {
+  "onnx_bytes": 625,
+  "nodes": 2,
+  "ops": [
+   "LinearClassifier",
+   "Scaler"
+  ],
+  "parameters": 31,
+  "max_abs_prob_diff": 8.940696716308594e-08,
+  "test_rows": 5983
+ },
+ "mlp16": {
+  "onnx_bytes": 2102,
+  "nodes": 14,
+  "ops": [
+   "Add",
+   "ArgMax",
+   "ArrayFeatureExtractor",
+   "Cast",
+   "Concat",
+   "MatMul",
+   "Relu",
+   "Reshape",
+   "Scaler",
+   "Sigmoid",
+   "Sub"
+  ],
+  "parameters": 213,
+  "max_abs_prob_diff": 2.980232238769531e-07,
+  "test_rows": 5983
+ }
+}

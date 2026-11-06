@@ -1,0 +1,20 @@
+# macOS, Office and OneDrive clutter
+.DS_Store
+._*
+~$*
+.~lock*
+*.tmp
+.849C9593-*
+
+# Python
+__pycache__/
+
+# Compiled desktop builds
+firmware/patient_sim
+firmware/guard
+
+# LaTeX build files
+*.aux
+*.log
+*.fdb_latexmk
+*.fls

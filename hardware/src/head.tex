@@ -1,0 +1,18 @@
+\documentclass[border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric}
+\definecolor{navy}{HTML}{1F3A5F}\definecolor{ink}{HTML}{1E2633}\definecolor{muted}{HTML}{5B6573}
+\definecolor{hair}{HTML}{C9D1DB}\definecolor{soft}{HTML}{E4EAF2}\definecolor{accent}{HTML}{C2410C}
+\tikzset{
+ box/.style={draw=navy, fill=soft, rounded corners=2pt, line width=0.7pt, align=center, font=\scriptsize, text=ink, inner sep=4pt},
+ wbox/.style={draw=navy, fill=white, rounded corners=2pt, line width=0.7pt, align=center, font=\scriptsize, text=ink, inner sep=4pt},
+ hbox/.style={draw=accent, fill=accent!8, rounded corners=2pt, line width=0.8pt, align=center, font=\scriptsize, text=ink, inner sep=4pt},
+ title/.style={font=\scriptsize\bfseries, text=navy},
+ dec/.style={diamond, aspect=2.2, draw=navy, fill=white, line width=0.7pt, align=center, font=\scriptsize, text=ink, inner sep=1pt},
+ arr/.style={-{Stealth[length=5pt]}, draw=navy, line width=0.7pt},
+ darr/.style={-{Stealth[length=5pt]}, draw=navy, line width=0.7pt, dashed},
+ lab/.style={font=\tiny, text=muted, align=center},
+}
+\begin{document}
